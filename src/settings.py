@@ -24,6 +24,8 @@ env = Env()
 env.read_env()
 
 
+API_ID = env.str('API_ID')
+API_HASH = env.str('API_HASH')
 SECRET_KEY = env.str('SECRET_KEY', default='django-insecure-tn%jxjb78nav)!8dum+@b2zgqlxj4+-v%8m*8@9lc48n9(x*^m')
 
 # SECURITY WARNING: don't run with debug turned on in production!

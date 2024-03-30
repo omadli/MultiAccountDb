@@ -6,6 +6,7 @@ class Account(models.Model):
     id = models.AutoField(primary_key=True)
     folder = models.PositiveIntegerField(
         verbose_name="Papka",
+        default=1,
         help_text="Papkasi"
     )
     user_id = models.PositiveBigIntegerField(
@@ -43,10 +44,12 @@ class Account(models.Model):
     )
     
     def __str__(self) -> str:
-        return f"{self.user_id}: +{self.phone_number}"
+        return f"+{self.phone_number}: {self.user_id}: {self.first_name}"
     
     class Meta:
         db_table = "accounts"
+        verbose_name = "Akkaunt "
+        verbose_name_plural = "Akkauntlar"
         
     groups: models.QuerySet[Group]
     channels: models.QuerySet[Channel]
@@ -87,7 +90,7 @@ class Group(models.Model):
     
     class Meta:
         db_table = "groups"
-        verbose_name = "Guruh"
+        verbose_name = "Guruh "
         verbose_name_plural = "Guruhlar"
 
 
@@ -126,5 +129,5 @@ class Channel(models.Model):
     
     class Meta:
         db_table = "channels"
-        verbose_name = "Kanal"
+        verbose_name = "Kanal "
         verbose_name_plural = "Kanallar"
