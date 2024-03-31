@@ -50,6 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # 3rd party
+    'rangefilter',
+    'import_export',
+    
     # local
     'accounts.apps.AccountsConfig'
 ]
