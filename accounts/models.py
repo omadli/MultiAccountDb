@@ -3,13 +3,13 @@ from django.db import models
 
 # Create your models here.
 class Account(models.Model):
-    id = models.AutoField(primary_key=True)
     folder = models.PositiveIntegerField(
         verbose_name="Papka",
         default=1,
         help_text="Papkasi"
     )
     user_id = models.PositiveBigIntegerField(
+        primary_key=True,
         blank=False, null=False,
         db_index=True,
         help_text="Telegram user_id"
@@ -47,6 +47,7 @@ class Account(models.Model):
         return f"+{self.phone_number}: {self.user_id}: {self.first_name}"
     
     class Meta:
+        ordering = ("folder", )
         db_table = "accounts"
         verbose_name = "Akkaunt "
         verbose_name_plural = "Akkauntlar"

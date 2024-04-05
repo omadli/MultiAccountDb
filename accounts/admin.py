@@ -8,8 +8,8 @@ from .models import Account, Group, Channel
 
 @admin.register(Account)
 class AccountAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
-    list_display = ('id', 'folder', 'phone', 'user_id', 'first_name', 'last_name', 'username', 'is_spam')
-    list_display_links = ('id', 'user_id', 'first_name', 'last_name')
+    list_display = ('folder', 'phone', 'user_id', 'first_name', 'last_name', 'username', 'is_spam')
+    list_display_links = ('user_id', 'first_name', 'last_name')
     
     search_fields = ('user_id', 'phone', 'first_name', 'last_name', 'username')
     list_filter = ('is_spam', 'folder')
